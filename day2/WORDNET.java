@@ -63,9 +63,7 @@ public class WORDNET {
         System.out.println(D.toString());
         System.out.println(count);
     }
-    public void print(){
-        System.out.println("hello");
-    }
+    
 
 
     public static void main(String [] args) throws Exception {
