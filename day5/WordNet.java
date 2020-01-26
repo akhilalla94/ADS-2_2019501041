@@ -63,7 +63,7 @@ public class WordNet {
 
     private boolean rootedDAG(int[] outputs) {
         int rootcount = 0;
-        for(int v = 0; v < G.V(); ++v) {
+        for (int v = 0; v < G.V(); ++v) {
             if (outputs[v] == 0) {
                 ++rootcount;
             }
@@ -90,7 +90,7 @@ public class WordNet {
         if (nounA == null || nounB == null) {
             throw new java.lang.IllegalArgumentException();
         }
-        if(synsetMap.containsKey(nounA) && synsetMap.containsKey(nounB)){
+        if (synsetMap.containsKey(nounA) && synsetMap.containsKey(nounB)) {
         return sap.length(synsetMap.get(nounA), synsetMap.get(nounB));
         }
         else {
