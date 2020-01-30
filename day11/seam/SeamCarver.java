@@ -224,39 +224,3 @@ private static final boolean Horizontal = true;
     }
  }
 
-//      public void removeHorizontalSeam(int[] seam) {
-//         if (seam == null || this.height() <= 1 || seam.length != this.width()) {
-//             throw new IllegalArgumentException();
-//         }
-
-//         Picture newPic = new Picture(width, height-1);
-
-//         Color color;
-//         int colo;
-
-//         for (int j = 0; j < height; j++) {
-            
-
-//             for (int i = 0; i < width; i++) {
-//                 if (seam[j] == i) continue;
-
-//                 color  = this.pic.get(i,j);
-//                 colo = i;
-//                 if(i > seam[j]) 
-//                     colo--;
-
-//                 newPic.set(colo,j,color);
-
-//             }height--;
-
-//         }
-//         this.pic = newPic;
-
-//         this.width = this.pic.width();
-//         this.height = this.pic.height();
-        
-//     }
-//  }
-
-
-
