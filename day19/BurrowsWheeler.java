@@ -5,18 +5,18 @@ public class BurrowsWheeler {
   private static final int R = 256;
 // apply Burrows-Wheeler transform, reading from standard input and writing to standard output
   public static void transform() {
-    String S = BinaryStdIn.readString();
-    int n = S.length();
+    String s = BinaryStdIn.readString();
+    int n = s.length();
     char[] t = new char[n];
     int first = 0;
-    CircularSuffixArray csa = new CircularSuffixArray(S);
+    CircularSuffixArray csa = new CircularSuffixArray(s);
     while (first < n && csa.index(first) != 0) {
       first++;
     }
     BinaryStdOut.write(first);
-    for (int a = 0; a < n; a++) {
-      BinaryStdOut.write(S.charAt((csa.index(a) + S.length() - 1) % S.length()));
-      t[a] = S.charAt((csa.index(a) + n - 1) % n);
+    for (int i = 0; i < n; i++) {
+      BinaryStdOut.write(s.charAt((csa.index(i) + s.length() - 1) % s.length()));
+      t[i] = s.charAt((csa.index(i) + n - 1) % n);
     }
     BinaryStdOut.close();
   }
@@ -25,26 +25,27 @@ public class BurrowsWheeler {
   public static void inverseTransform() {
     int first = BinaryStdIn.readInt();
     String t = BinaryStdIn.readString();
-    int n = t.length();
-    int[] next = new int[n];
-    int[] count = new int[R + 1];
     
-    for (int a  = 0; a < n; a++)
-      count[t.charAt(a) + 1]++;
+    int n = t.length();
 
-    for (int a = 1; a < R + 1; a++)
-      count[a] += count[a - 1];
+    int[] next = new int[n];
 
+    int[] count = new int[R + 1];
 
-    for (int a = 0; a < n; a++)
-      next[count[t.charAt(a)]++] = a;
+    for (int i = 0; i < n; i++)
+      count[t.charAt(i) + 1]++;
 
-    for (int a = next[first], c = 0; c < n; a = next[a], c++)
-      BinaryStdOut.write(t.charAt(a));
+    for (int i = 1; i < R + 1; i++)
+      count[i] += count[i - 1];
+
+    for (int i = 0; i < n; i++)
+      next[count[t.charAt(i)]++] = i;
+
+    for (int i = next[first], c = 0; c < n; i = next[i], c++)
+      BinaryStdOut.write(t.charAt(i));
 
     BinaryStdOut.close();
   }
-
   public static void main(String[] args) {
    
   }
